@@ -14,7 +14,8 @@ const config = {
 			// precompress: false,
 			// strict: true,
 			paths: {
-				base: '/sith007.github.io'
+				// user site (sith007.github.io) is served at the domain root
+				base: ''
 			}
 		})
 	},
