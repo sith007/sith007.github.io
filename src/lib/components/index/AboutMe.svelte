@@ -1,5 +1,39 @@
 <script>
 	import mycv from '$lib/images/cv.pdf';
+	import { onMount } from 'svelte';
+
+	let years = 9;
+	let projects = 10;
+
+	onMount(() => {
+		const el = document.getElementById('stats');
+		if (!el || !('IntersectionObserver' in window)) return;
+		const io = new IntersectionObserver(
+			(entries) => {
+				if (entries[0].isIntersecting) {
+					io.disconnect();
+					runCounter();
+				}
+			},
+			{ threshold: 0.5 }
+		);
+		io.observe(el);
+	});
+
+	function runCounter() {
+		years = 0;
+		projects = 0;
+		const start = performance.now();
+		const dur = 950;
+		function tick(now) {
+			const p = Math.min((now - start) / dur, 1);
+			const ease = 1 - Math.pow(1 - p, 3);
+			years = Math.round(ease * 9);
+			projects = Math.round(ease * 10);
+			if (p < 1) requestAnimationFrame(tick);
+		}
+		requestAnimationFrame(tick);
+	}
 </script>
 
 <section id="about">
@@ -15,13 +49,13 @@
 			<p>I don't love coding; I love <b>hard problems</b>. Code is just the tool.</p>
 			<p>Off the clock: F1 &amp; MotoGP, sim racing, guitars, keyboards.</p>
 
-			<div class="stats">
+			<div class="stats" id="stats">
 				<div class="stat">
-					<div class="n">9</div>
+					<div class="n">{years}</div>
 					<div class="l">years experience</div>
 				</div>
 				<div class="stat">
-					<div class="n">10+</div>
+					<div class="n">{projects}+</div>
 					<div class="l">projects shipped</div>
 				</div>
 			</div>
