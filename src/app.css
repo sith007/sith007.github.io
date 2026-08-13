@@ -647,6 +647,44 @@ footer b {
   color: var(--muted);
 }
 
+/* ---------- hud viewfinder + global scan ---------- */
+.hud { position: fixed; inset: 0; pointer-events: none; z-index: 60; }
+.hud span { position: absolute; width: 20px; height: 20px; border: 2px solid var(--cyan); opacity: .3; }
+.hud .h-tl { top: 12px; left: 12px; border-right: 0; border-bottom: 0; }
+.hud .h-tr { top: 12px; right: 12px; border-left: 0; border-bottom: 0; }
+.hud .h-bl { bottom: 12px; left: 12px; border-right: 0; border-top: 0; }
+.hud .h-br { bottom: 12px; right: 12px; border-left: 0; border-top: 0; }
+
+.global-scan { position: fixed; left: 0; right: 0; height: 2px; z-index: 60; pointer-events: none; background: linear-gradient(90deg, transparent, rgba(34, 211, 238, .4), transparent); animation: globalscan 9s linear infinite; }
+@keyframes globalscan { 0% { top: -4px; } 100% { top: 100vh; } }
+
+/* ---------- live rec indicator ---------- */
+.right { display: flex; align-items: center; gap: 18px; }
+.rec { display: flex; align-items: center; gap: 6px; font-family: var(--mono); font-size: 10px; letter-spacing: .14em; color: var(--muted); }
+.rec .dot { width: 8px; height: 8px; border-radius: 50%; background: #ff3b30; box-shadow: 0 0 8px rgba(255, 59, 48, .85); animation: blink 1.2s steps(1) infinite; }
+
+/* ---------- detection frame on card media ---------- */
+.card .media { position: relative; }
+.card .cb { position: absolute; inset: 7px; border: 1px solid rgba(34, 211, 238, .32); border-radius: 3px; pointer-events: none; z-index: 2; }
+.card .cb i { position: absolute; width: 13px; height: 13px; border: 2px solid var(--cyan); }
+.card .cb .c-tl { top: -4px; left: -4px; border-right: 0; border-bottom: 0; }
+.card .cb .c-tr { top: -4px; right: -4px; border-left: 0; border-bottom: 0; }
+.card .cb .c-bl { bottom: -4px; left: -4px; border-right: 0; border-top: 0; }
+.card .cb .c-br { bottom: -4px; right: -4px; border-left: 0; border-top: 0; }
+.card .cls { position: absolute; top: 10px; right: 10px; z-index: 3; font-family: var(--mono); font-size: 9px; font-weight: 700; color: #06121a; background: var(--cyan); padding: 2px 6px; border-radius: 2px; }
+.card .scanbar { position: absolute; left: 0; right: 0; top: 0; height: 2px; z-index: 3; background: linear-gradient(90deg, transparent, var(--cyan), transparent); opacity: 0; pointer-events: none; }
+.card:hover .scanbar { opacity: 1; animation: cardscan 1.3s ease-in-out; }
+@keyframes cardscan { 0% { top: 0; } 100% { top: 100%; } }
+
+/* ---------- hobby detection frame ---------- */
+.hobby .imgs { position: relative; }
+.hobby .cb { position: absolute; inset: -6px; border: 1px solid rgba(34, 211, 238, .3); border-radius: 5px; pointer-events: none; }
+.hobby .cb i { position: absolute; width: 11px; height: 11px; border: 2px solid var(--cyan); }
+.hobby .cb .c-tl { top: -3px; left: -3px; border-right: 0; border-bottom: 0; }
+.hobby .cb .c-tr { top: -3px; right: -3px; border-left: 0; border-bottom: 0; }
+.hobby .cb .c-bl { bottom: -3px; left: -3px; border-right: 0; border-top: 0; }
+.hobby .cb .c-br { bottom: -3px; right: -3px; border-left: 0; border-top: 0; }
+
 /* ---------- responsive ---------- */
 @media (max-width: 900px) {
   .cards { grid-template-columns: repeat(2, 1fr); }
@@ -662,6 +700,8 @@ footer b {
   .brand { font-size: 11px; }
   .links { font-size: 9px; gap: 7px; }
   .links a span { display: none; }
+  .rec-txt { display: none; }
+  .right { gap: 10px; }
   section { padding: 52px 18px; }
   .frame img { width: 150px; height: 150px; }
   footer { word-break: break-word; line-height: 1.6; }

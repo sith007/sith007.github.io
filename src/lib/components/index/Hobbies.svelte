@@ -4,6 +4,14 @@
 	import keeb1 from '$lib/images/keeb1.jpg';
 	import run1 from '$lib/images/run1.jpg';
 	import sim1 from '$lib/images/sim1.jpg';
+
+	const hobbies = [
+		{ label: 'MOTORSPORT', img: track1 },
+		{ label: 'DIY / 3D PRINTING', img: electric1 },
+		{ label: 'MECHANICAL KEYBOARDS', img: keeb1 },
+		{ label: '5K RUNNING', img: run1 },
+		{ label: 'SIM RACING', img: sim1 }
+	];
 </script>
 
 <section id="hobbies">
@@ -14,25 +22,14 @@
 	</div>
 
 	<div class="hobbies">
-		<div class="hobby">
-			<div class="label">MOTORSPORT</div>
-			<div class="imgs"><img src={track1} alt="Motorsport" /></div>
-		</div>
-		<div class="hobby">
-			<div class="label">DIY / 3D PRINTING</div>
-			<div class="imgs"><img src={electric1} alt="DIY" /></div>
-		</div>
-		<div class="hobby">
-			<div class="label">MECHANICAL KEYBOARDS</div>
-			<div class="imgs"><img src={keeb1} alt="Keyboards" /></div>
-		</div>
-		<div class="hobby">
-			<div class="label">5K RUNNING</div>
-			<div class="imgs"><img src={run1} alt="Running" /></div>
-		</div>
-		<div class="hobby">
-			<div class="label">SIM RACING</div>
-			<div class="imgs"><img src={sim1} alt="Sim racing" /></div>
-		</div>
+		{#each hobbies as h (h.label)}
+			<div class="hobby">
+				<div class="label">{h.label}</div>
+				<div class="imgs">
+					<span class="cb"><i class="c-tl"></i><i class="c-tr"></i><i class="c-bl"></i><i class="c-br"></i></span>
+					<img src={h.img} alt={h.label} />
+				</div>
+			</div>
+		{/each}
 	</div>
 </section>

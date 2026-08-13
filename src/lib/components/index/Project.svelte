@@ -12,6 +12,7 @@
 			type: 'document.ocr',
 			tech: 'OpenCV',
 			tick: 'KYC',
+			conf: '99.1%',
 			image: driverlicense
 		},
 		{
@@ -20,6 +21,7 @@
 			type: 'iot.vision',
 			tech: 'OpenCV',
 			tick: 'IOT',
+			conf: '97.8%',
 			image: parking
 		},
 		{
@@ -28,6 +30,7 @@
 			type: 'speed.detection',
 			tech: 'FFMPEG',
 			tick: 'TRAFFIC',
+			conf: '96.4%',
 			image: traffic
 		},
 		{
@@ -36,6 +39,7 @@
 			type: 'system.design',
 			tech: 'payments',
 			tick: 'SYS',
+			conf: '95.9%',
 			image: system
 		},
 		{
@@ -44,6 +48,7 @@
 			type: 'object.detection',
 			tech: 'OpenCV',
 			tick: 'CV',
+			conf: '98.7%',
 			image: hullpoint
 		}
 	];
@@ -59,7 +64,12 @@
 	<div class="cards">
 		{#each works as w (w.title)}
 			<div class="card">
-				<div class="media"><img src={w.image} alt={w.title} /></div>
+				<div class="media">
+					<span class="cb"><i class="c-tl"></i><i class="c-tr"></i><i class="c-bl"></i><i class="c-br"></i></span>
+					<span class="cls">{w.conf}</span>
+					<span class="scanbar"></span>
+					<img src={w.image} alt={w.title} />
+				</div>
 				<div class="body">
 					<h3>{w.title}</h3>
 					<p class="desc">{w.desc}</p>
