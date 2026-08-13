@@ -15,7 +15,7 @@
 </script>
 
 <section id="hobbies">
-	<div class="sec-head">
+	<div class="sec-head" data-reveal>
 		<span class="cmd">//</span>
 		<span class="title">other_detections</span>
 		<span class="count">[05]</span>
@@ -23,12 +23,9 @@
 
 	<div class="hobbies">
 		{#each hobbies as h (h.label)}
-			<div class="hobby">
-				<div class="label">{h.label}</div>
-				<div class="imgs">
-					<span class="cb"><i class="c-tl"></i><i class="c-tr"></i><i class="c-bl"></i><i class="c-br"></i></span>
-					<img src={h.img} alt={h.label} />
-				</div>
+			<div class="hobby" data-reveal>
+				<img src={h.img} alt={h.label} />
+				<span class="label">{h.label}</span>
 			</div>
 		{/each}
 	</div>

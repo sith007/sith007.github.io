@@ -3,13 +3,13 @@
 </script>
 
 <section id="about">
-	<div class="sec-head">
+	<div class="sec-head" data-reveal>
 		<span class="cmd">//</span>
 		<span class="title">subject_profile</span>
 		<span class="count">[01]</span>
 	</div>
 
-	<div class="about-grid">
+	<div class="about-grid" data-reveal>
 		<div>
 			<p>I build things that see — <b>computer vision</b>, <b>MLOps</b>, full-stack. Mostly Python.</p>
 			<p>I don't love coding; I love <b>hard problems</b>. Code is just the tool.</p>

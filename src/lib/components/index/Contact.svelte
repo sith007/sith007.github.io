@@ -1,11 +1,11 @@
 <section id="contact">
-	<div class="sec-head">
+	<div class="sec-head" data-reveal>
 		<span class="cmd">//</span>
 		<span class="title">ping</span>
 		<span class="count">[03]</span>
 	</div>
 
-	<div class="contact">
+	<div class="contact" data-reveal>
 		<div>
 			<h2>Contact Me</h2>
 			<div class="sub">let's have a coffee chat</div>

@@ -1,11 +1,11 @@
 <section id="experience">
-	<div class="sec-head">
+	<div class="sec-head" data-reveal>
 		<span class="cmd">//</span>
 		<span class="title">timeline_log</span>
 		<span class="count">[04]</span>
 	</div>
 
-	<div class="log">
+	<div class="log" data-reveal>
 		<div class="entry">
 			<div class="when">[2023 — present]</div>
 			<h3>Project Lead</h3>
